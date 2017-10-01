@@ -21,7 +21,8 @@ php71w-pdo.x86_64 \
 php71w-xml.x86_64 \
 mod_php71w \
 php71w-opcache \
-php71w-intl
+php71w-intl \
+php71w-devel
 
 echo "Include /vagrant/apache/*.conf" >> /etc/httpd/conf/httpd.conf
 echo "date.timezone = Pacific/Auckland" >> /etc/php.ini
