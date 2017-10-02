@@ -25,7 +25,18 @@ php71w-intl \
 php71w-devel
 
 echo "Include /vagrant/apache/*.conf" >> /etc/httpd/conf/httpd.conf
-echo "date.timezone = Pacific/Auckland" >> /etc/php.ini
+cat << EOT >> /etc/php.ini
+date.timezone = Pacific/Auckland
+zend_extension = /usr/lib64/php/modules/xdebug.so
+[XDebug]
+xdebug.remote_enable = 1
+xdebug.remote_autostart = 1
+xdebug.idekey="debugit"  
+xdebug.remote_host=10.0.2.2  
+xdebug.remote_port=9000  
+xdebug.remote_handler="dbgp"
+EOT
+
 systemctl start httpd.service
 systemctl enable httpd.service
 
